@@ -3,25 +3,15 @@ import pandas as pd
 from dash import html
 from dash_spa.components import TableContext
 from .basic_table import BasicTable
-from ..icons import ICON, TWITTER, YOUTUBE, GOOGLE, YAHOO
-
-
-icons = {
-    "Direct": ICON.GLOBE.ME2,
-    "Google Search": GOOGLE,
-    "youtube.com": YOUTUBE.ME2,
-    "yahoo.com": YAHOO,
-    "twitter.com": TWITTER.ME2
-}
 
 data = OrderedDict([
-    ('#',['1', '2', '3', '4', '5']),
-    ('Traffic Source',['Direct', 'Google Search', 'youtube.com', 'yahoo.com', 'twitter.com']),
-    ('Source Type',['Direct', 'Search/Organic', 'Social', 'Referral', 'Social']),
-    ('Category',['-', '-', 'Arts and Entertainment', 'News and Media', 'Social Networks']),
-    ('Global Rank',['--', '--', '#2', '#11', '#4']),
-    ('Traffic Share',['51%', '18%', '18%', '8%', '4%']),
-    ('Change',['2.45%', '17.78%', '-', '-9.45%', '-']),
+    ('#',['1', '2', '3', '4', '5', '6', '7']),
+    ('Traffic Source',['Direct', 'Google Search', 'youtube.com', 'yahoo.com', 'twitter.com', 'asdas', 'asdasd']),
+    ('Source Type',['Direct', 'Search/Organic', 'Social', 'Referral', 'Social', 'asdaasd', 'asdas']),
+    ('Category',['-', '-', 'Arts and Entertainment', 'News and Media', 'Social Networks', 'adsasd', '123123']),
+    ('Global Rank',['--', '--', '#2', '#11', '#4', '#1', '6%']),
+    ('Traffic Share',['51%', '18%', '18%', '8%', '4%', '6%', '19%']),
+    ('Change',['2.45%', '17.78%', '-', '-9.45%', '-', '-', '-']),
     ])
 
 
@@ -56,7 +46,6 @@ class TrafficTable(BasicTable):
                 html.A(cid, href='#', className='text-primary fw-bold')
             ]),
             html.Td([
-                icons[ts],
                 ts
             ], className='fw-bold d-flex align-items-center'),
             html.Td(st),
@@ -78,4 +67,4 @@ def table1():
         html.Div([
             html.Div(table, className='table-responsive')
         ], className='card-body')
-    ], className='card border-0 shadow mb-4')
+    ], className='card border-0 shadow mb-4', style={'maxHeight': '40vh', 'overflowY': 'auto'})

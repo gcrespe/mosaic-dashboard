@@ -3,7 +3,7 @@ from sys import argv
 from waitress import serve
 from paste.translogger import TransLogger
 from app import create_dash
-from usage import create_app
+from app import create_app
 from dash_spa import logging, config
 
 options = config.get('logging')
@@ -25,7 +25,7 @@ port = int(os.environ.get("PORT", 5000))
 hostname = os.environ.get("HOSTNAME", "localhost")
 hostport = os.environ.get("HOSTPORT", "5000")
 
-print(f'Dash/Flightdeck version 0.0.1')
+print(f'Mosaic dashboard 0.0.1')
 print(f'Visit http://{hostname}:{hostport}/pages/dashboard')
 
 # serve(app_with_logger, host='0.0.0.0', port=port)

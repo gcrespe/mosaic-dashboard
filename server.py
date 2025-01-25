@@ -2,6 +2,9 @@ import os
 from dash import Dash
 from dash_spa import logging
 
+os.environ["HOSTNAME"] = 'localhost'
+os.environ["HOSTPORT"] = '5000'
+
 def serve_app(app: Dash, path="/", debug=False):
     """Serve Dash application
 
@@ -26,7 +29,7 @@ def serve_app(app: Dash, path="/", debug=False):
     # is mapped onto a host port. Use the env variables passed
     # in to the container to determin the host URL.
 
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5000))    
     hostname = os.environ.get("HOSTNAME", "localhost")
     hostport = os.environ.get("HOSTPORT", "5000")
 

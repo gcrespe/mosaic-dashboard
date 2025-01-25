@@ -17,8 +17,6 @@ external_scripts = [
     ]
 
 def create_dash():
-
-
     app = DashSPA( __name__,
         prevent_initial_callbacks=True,
         suppress_callback_exceptions=True,
@@ -37,4 +35,4 @@ def create_app(dash_factory) -> DashSPA:
 
 if __name__ == "__main__":
     app = create_app(create_dash)
-    serve_app(app, debug=False, path="/pages/dashboard")
+    serve_app(app, debug=True, path="/")

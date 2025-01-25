@@ -144,7 +144,7 @@ layout = html.Main([
         topNavBar(),
         html.Div([
             breadCrumbs(['components', 'Notifications']),
-            banner("Notifications", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/buttons/')
+            banner("Notifications", "Dozens of reusable components built to provide buttons, alerts, popovers, and more.", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/buttons/')
         ], className='py-4'),
         notifications(),
         footer()

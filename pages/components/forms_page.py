@@ -205,7 +205,7 @@ layout = html.Main([
         topNavBar(),
         html.Div([
             breadCrumbs(["Components", "Forms"]),
-            banner("Forms", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/')
+            banner("Forms", "Dozens of reusable components built to provide buttons, alerts, popovers, and more.", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/')
         ], className='py-4'),
         forms(),
         footer()

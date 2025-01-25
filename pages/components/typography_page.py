@@ -181,7 +181,7 @@ layout = html.Main([
         topNavBar(),
         html.Div([
             breadCrumbs(['components', 'Typography']),
-            banner("Typography", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/foundation/typography/')
+            banner("Typography", "Dozens of reusable components built to provide buttons, alerts, popovers, and more.", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/foundation/typography/')
         ], className='py-4'),
         typography(),
         footer()

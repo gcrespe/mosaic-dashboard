@@ -6,13 +6,13 @@ from .basic_table import BasicTable
 
 data = OrderedDict([
 
-    ('Country',['United States', 'Canada', 'United Kingdom', 'France', 'Japan', 'Germany']),
-    ('All',['106', '76', '147', '112', '115', '220']),
-    ('All Change',['-5', '17', '10', '3', '-12', '-56']),
-    ('Travel & Local',['3', '4', '5', '5', '6', '7']),
-    ('Travel & Local Change',['=', '=', '=', '1', '-1', '-3']),
-    ('Widgets',['32', '30', '34', '34', '37', '30']),
-    ('Widgets Change',['3', '3', '7', '-2', '-5', '2']),
+    ('Country',['United States', 'Canada', 'United Kingdom', 'France', 'Japan', 'Germany', 'United States', 'Canada', 'United Kingdom', 'France']),
+    ('All',['106', '76', '147', '112', '115', '220', '106', '76', '147', '112']),
+    ('All Change',['-5', '17', '10', '3', '-12', '-56', '-5', '17', '10', '3']),
+    ('Travel & Local',['3', '4', '5', '5', '6', '7', '3', '4', '5', '5']),
+    ('Travel & Local Change',['=', '=', '=', '1', '-1', '-3', '=', '=', '=', '1']),
+    ('Widgets',['32', '30', '34', '34', '37', '30', '32', '30', '34', '34']),
+    ('Widgets Change',['3', '3', '7', '-2', '-5', '2', '3', '3', '7', '-2']),
     ])
 
 FLAGS = {
@@ -36,7 +36,6 @@ class TravelTable(BasicTable):
         return  html.Tr([
             html.Td([
                 html.A([
-                    html.Img(className='me-2 image image-small rounded-circle', alt='Image placeholder', src=FLAGS[country]),
                     html.Div([
                         html.Span(country, className='h6')
                     ])
@@ -62,4 +61,4 @@ def table2():
         html.Div([
             html.Div(table, className='table-responsive')
         ], className='card-body')
-    ], className='card border-0 shadow')
+    ], className='card border-0 shadow', style={'maxHeight': '40vh', 'overflowY': 'auto'})

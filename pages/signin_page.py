@@ -3,7 +3,7 @@ from dash_spa import register_page
 from .common import background_img
 from .icons import ICON, FACEBOOK, TWITTER, GITHUB
 
-register_page(__name__, path="/pages/sign-in", title="Sign in", container='full_page')
+register_page(__name__, path="/", title="Sign in", container='full_page')
 
 layout = html.Div([
     # NOTICE: You can use the _analytics.html partial to include production code specific code & trackers
@@ -11,15 +11,11 @@ layout = html.Div([
         # Section
         html.Section([
             html.Div([
-                html.P([
-                    dcc.Link([ICON.ARROW_NARROW_LEFT, "Back to homepage"
-                    ], href='dashboard', className='d-flex align-items-center justify-content-center')
-                ], className='text-center'),
                 html.Div([
                     html.Div([
                         html.Div([
                             html.Div([
-                                html.H1("Sign in to our platform", className='mb-0 h3')
+                                html.H1("Sign in", className='mb-0 h3')
                             ], className='text-center text-md-center mb-4 mt-md-0'),
                             html.Form([
                                 # Form
@@ -51,21 +47,15 @@ layout = html.Div([
                                         ])
                                     ], className='d-flex justify-content-between align-items-top mb-4')
                                 ], className='form-group'),
-                                html.Div([
-                                    html.Button("Sign in", type='submit', className='btn btn-gray-800')
-                                ], className='d-grid')
+                                dcc.Link([
+                                    html.Div([
+                                        html.Button("Sign in", type='submit', className='btn btn-gray-800')
+                                    ], className='d-grid')
+                                ], href='/pages/dashboard')
                             ], action='#', className='mt-4'),
                             html.Div([
-                                html.Span("or login with", className='fw-normal')
-                            ], className='mt-3 mb-4 text-center'),
-                            html.Div([
-                                dcc.Link(FACEBOOK.XXS, href='#', className='btn btn-icon-only btn-pill btn-outline-gray-500 me-2', title='facebook button'),
-                                dcc.Link(TWITTER.XXS, href='#', className='btn btn-icon-only btn-pill btn-outline-gray-500 me-2', title='twitter button'),
-                                dcc.Link(GITHUB.XXS, href='#', className='btn btn-icon-only btn-pill btn-outline-gray-500', title='github button')
-                            ], className='d-flex justify-content-center my-4'),
-                            html.Div([
                                 html.Span([
-                                    "Not registered?",
+                                    "Not registered? ",
                                     dcc.Link("Create account", href='./sign-up', className='fw-bold')
                                 ], className='fw-normal')
                             ], className='d-flex justify-content-center align-items-center mt-4')

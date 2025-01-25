@@ -31,7 +31,7 @@ layout = html.Main([
         topNavBar(),
         html.Div([
             breadCrumbs(["Components", "Modals"]),
-            banner("Modals", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/modals/')
+            banner("Modals", "Dozens of reusable components built to provide buttons, alerts, popovers, and more.", 'https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/modals/')
         ], className='py-4'),
         modals(),
         footer()

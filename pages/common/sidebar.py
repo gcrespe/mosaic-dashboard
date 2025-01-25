@@ -9,11 +9,13 @@ from .mobile_nav import mobileSidebarHeader
 def _sidebarLink(text, icon, href, hyperlink=False, target=""):
     Element = html.A if hyperlink else dcc.Link
     el = Element([
-            html.Span([
-                icon
-            ], className='sidebar-icon'),
-            html.Span(text, className='mt-1 ms-1 sidebar-text')
-        ], href=href, className='nav-link')
+            html.Div([
+                html.Span([
+                    icon
+                ], className='sidebar-icon'),
+                html.Span(text, className='mt-1 ms-1 sidebar-text')
+            ], className="align-items-center justify-content-center")
+        ], href=href, className='nav-link mb-3')
 
     if target:
         el.target = target
@@ -22,7 +24,7 @@ def _sidebarLink(text, icon, href, hyperlink=False, target=""):
 
 
 def _sidebarButtonLink(text, icon, href):
-    return  SidebarNavItem([
+    return SidebarNavItem([
         dcc.Link([
             html.Span([
                 icon
@@ -30,6 +32,17 @@ def _sidebarButtonLink(text, icon, href):
             html.Span(text, className="sidebar-text")
         ], href=href, className='btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro')
     ], active=SidebarNavItem.is_active(href))
+
+def _sidebarLogo(icon, href):
+    return SidebarNavItem([
+        dcc.Link([
+            html.Span([
+                icon
+            ], className='sidebar-icon d-inline-flex align-items-center justify-content-center'),
+            html.Span(className="sidebar-text")
+        ], href=href, className='btn text-secondary me-3 d-flex align-items-center justify-content-center mb-3 pt-md-4')
+    ], active=SidebarNavItem.is_active(href))
+
 
 
 @DropdownFolderContext.Provider()
@@ -43,8 +56,11 @@ def sideBar():
             # Sidebar List of entries
 
             html.Ul([
-                _sidebarLink("Volt Overview", ICON.LIGHTENING, 'https://demo.themesberg.com/volt/index.html', target="_blank"),
-                _sidebarLink("Dashboard", ICON.CHART_PIE, '/pages/dashboard'),
+
+                # Logo
+                _sidebarLogo(ICON.MOSAIC, '../pages/upgrade-to-pro'),
+                
+                _sidebarLink("Bets", ICON.BETS, '/pages/bets'),
                 _sidebarLink("Transactions", ICON.CREDIT_CARD, '/pages/transactions'),
                 _sidebarLink("Settings", ICON.VIEW_GRID, '/pages/settings'),
                 _sidebarLink("Calendar", ICON.CALENDER, 'https://demo.themesberg.com/volt-pro/pages/calendar'),
@@ -75,11 +91,6 @@ def sideBar():
                     dropdownFolderEntry("Typography", '/pages/components/typography'),
                 ], "Components", ICON.ARCHIVE, id=pid('components')),
 
-
-                # Bottom Item
-
-                _sidebarButtonLink("Upgrade to Pro", ICON.FIRE.ME2, '../pages/upgrade-to-pro')
-
-            ], className='nav flex-column pt-3 pt-md-0')
-        ], className='sidebar-inner px-4 pt-3')
+            ], className='nav flex-column')
+        ], className='sidebar-inner px-4')
     ], id='sidebarMenu', className='sidebar d-lg-block bg-gray-800 text-white collapse')

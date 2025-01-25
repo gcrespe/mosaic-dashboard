@@ -1,38 +1,26 @@
 from dash import html
 from dash_spa import register_page
 
-from .common import topNavBar, footer, buttonBar, sideBar
-from .dashboard import salesChart, customers, revenue, bounceRate, pageVisitsTable, teamMembers, progressTrack, totalOrdersBarChart, rankingPanel, acquisition, newTasksButton
+from .common import topNavBar, footer, sideBar, breadCrumbs, banner
+from .bootstrap_tables import table1 as teams_table, table2 as leagues_table
 
-register_page(__name__, path="/pages/dashboard", title="Dashboard")
+register_page(__name__, path="/pages/bets", title="Bets")
 
 layout = html.Main([
         sideBar(),
         topNavBar(),
-        buttonBar(
-            newTasksButton()
-        ),
         html.Div([
-            salesChart(),
-            customers(),
-            revenue(),
-            bounceRate()
-        ], className='row'),
+            breadCrumbs(["Bets"]),
+            banner("League of Legends Bets", "Analysis center of League of Legends teams and tournaments", 'https://betboom.bet.br/')
+        ], className='py-4'),
         html.Div([
             html.Div([
-                html.Div([
-                    pageVisitsTable(),
-                    teamMembers(),
-                    progressTrack()
-                ], className='row')
-            ], className='col-12 col-xl-8'),
+                leagues_table(), 
+            ], className='col-md-6'), 
             html.Div([
-                totalOrdersBarChart(),
-                rankingPanel(),
-                acquisition(),
-            ], className='col-12 col-xl-4')
-
-        ], className='row'),
+                teams_table(),
+            ], className='col-md-6')  # 6 columns on medium screens and up
+        ], className='row py-4'),
         footer()
     ], className='content')
 
